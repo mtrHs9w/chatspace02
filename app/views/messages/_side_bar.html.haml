@@ -1,0 +1,23 @@
+-# <div class = "side-bar">
+-#   <div class = "side-bar__user-name">
+-#   </div>
+-#   <div class = "side-bar__group-list">
+-#   </div>
+-# </div>
+
+
+
+.side-bar
+  .side-bar__user-name
+    .top-items
+      %p.top-items__name ミツル
+      %ul.top-items__icons
+        = link_to "#", class: "top-items__icons--edit" do
+          %i.fas.fa-edit
+        = link_to "#", class: "top-items__icons--cog" do
+          %i.fas.fa-cog
+  .side-bar__group-list
+    .side-bar__group-list--groups
+      .side-bar__group-list--groups--name mitsuru's
+      .side-bar__group-list--groups--message No message yet
+
