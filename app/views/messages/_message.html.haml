@@ -1,0 +1,25 @@
+.chat-main__message-list--name-day{"data-message-id": "#{message.id}"}
+  .chat-main__message-list--name-day--name
+    = message.user.name
+  .chat-main__message-list--name-day--day
+    = message.created_at.strftime("%Y/%m/%d %H:%M")
+.chat-main__message-list--comment
+  - if message.content.present?
+    %p.chat-main__message-list--comment--content
+      = message.content
+  = image_tag message.image.url, class: 'chat-main__message-list--comment--image' if message.image.present?
+
+
+
+
+-# .chat_main__message--list_name_date_message{"data-message-id": "#{message.id}"}
+-#   .chat_main__message--list_name_date_message_name_date
+-#     .chat_main__message--list_name_date_message_name_date_name
+-#       = message.user.name
+-#     .chat_main__message--list_name_date_message_name_date_date
+-#       = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+-#   .chat_main__message--list_name_date_message_message
+-#     - if message.content.present?
+-#       %p.lower-message__content
+-#         = message.content
+-#     = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
