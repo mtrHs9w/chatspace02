@@ -1,51 +1,26 @@
--# <div class = "chat-main">
--# </div>
 .chat-main
+
   .chat-main__group-info
-    %h2.group-name-member__group
-      hasegawa's
-      .group-name-member__group--member
-        %ul.group-name-member__group--member--member
+    %h2.chat-main__group-info--group-name
+      = @group.name
+      %ul.chat-main__group-info--group-name--members
+        %li.chat-main__group-info--group-name--member--member
           Member :
-          %li.group-name-member__group--member--member--name
-            Doraemon
-    = link_to "#", class: "edit" do
-      edit
+        %li.chat-main__group-info--group-name--member--name
+          - @group.users.each do |user|
+            = user.name
+    .chat-main__group-info--edit
+      = link_to edit_group_path(@group.id), class:"chat-main__group-info--edit--url" do
+        Edit
 
   .chat-main__message-list
-    .chat-main__message-list--comment
-      .chat-main__message-list--comment--member-name
-        hasegawa 2021/05/12
-      .chat-main__message-list--comment--comment
-        おはよう
-
-  -# .chat-main__message-form
-  -#   %form.chat-main__message-form--type
-  -#     %input.chat-main__message-form--type--text{:placeholder => "type a message", :type => "text"}/
-  -#       %p.chat-main__message-form--type--text-box
-  -#       %i.far.fa-image
-  -#     %input.chat-main__message-form--type--btn{:name => "commit", :type => "submit", :value => "Send"}/
-
-
-
-  -# .chat-main__message-form
-  -#   %form.chat-main__message-form--type
-  -#     .chat-main__message-form--type--box
-  -#       %input.chat-main__message-form--type--box--text{placeholder: "type a message", type: "text"}
-  -#       %i.far.fa-image
-  -#       %input.chat-main__message-form--type--box--dialog{type: "file"}
-  -#     %input.chat-main__message-form--type--btn{name: "commit", type: "submit", value: "Send"}
-
-
-
-  
-
+    = render @messages
 
   .chat-main__message-form
-    %form.chat-main__message-form--type
-      .chat-main__message-form--type--box
-        %input.chat-main__message-form--type--box--text{placeholder: "type a message", type: "text"}
-        %label{class: "chat-main__message-form--type--box--dialog"}
-          = icon('far fa','image',class:"chat-main__message-form--type--box--dialog--icon")
-          %input{type: "file",class: "chat-main__message-form--type--box--dialog--except"}
-      %input.chat-main__message-form--type--btn{name: "commit", type: "submit", value: "Send"}
+    = form_for [@group, @message], html:{class: "chat_main__message-form--box"} do |f|
+      .chat-main__message-form--box--text-image
+        = f.text_field :content, class: "chat-main__message-form--box--text-image--text", placeholder: "type a message"
+        = f.label :image, class: 'chat-main__message-form--box--text-image--image' do
+          = icon('fas', 'image', class: 'chat-main__message-form--box--text-image--image--icon')
+          = f.file_field :image, class: 'chat-main__message-form--box--text-image--image--hidden'
+      = f.submit 'Send', class: "chat-main__message-form--box--submit"

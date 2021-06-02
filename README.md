@@ -1,4 +1,5 @@
 # ChatSpace DB設計
+
 ## users table
 |Column|Type|Options|
 |------|----|-------|
@@ -9,6 +10,7 @@
  - has_many :groups, through: :groups_users
  - has_many :groups_users
  - has_many :messages
+
 
 ## groups table
 |Column|Type|Options|
