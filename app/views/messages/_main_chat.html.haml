@@ -23,4 +23,4 @@
         = f.label :image, class: 'chat-main__message-form--box--text-image--image' do
           = icon('fas', 'image', class: 'chat-main__message-form--box--text-image--image--icon')
           = f.file_field :image, class: 'chat-main__message-form--box--text-image--image--hidden'
-      = f.submit 'Send', class: "chat-main__message-form--box--submit"
+      = f.submit 'Send', class: "chat-main__message-form--box--submit", id: "new_message"

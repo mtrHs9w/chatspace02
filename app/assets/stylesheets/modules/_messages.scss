@@ -29,6 +29,7 @@
         &--name{
           margin: 0 20px 5px 20px;
           font-size: 15px;
+          text-decoration:none;
         }
         &--message{
           margin: 0 20px 40px 20px;
@@ -210,4 +211,10 @@ h2{
   z-index: 20;
   color: gray;
   font-size: 30px;
+}
+
+
+a{
+  color:inherit;  //linkのカラーはブラウザのデフォルトがある。左記記述により、親要素の色に合わせることができる
+  text-decoration:none;
 }

@@ -3,6 +3,7 @@
     = message.user.name
   .chat-main__message-list--name-day--day
     = message.created_at.strftime("%Y/%m/%d %H:%M")
+    
 .chat-main__message-list--comment
   - if message.content.present?
     %p.chat-main__message-list--comment--content
