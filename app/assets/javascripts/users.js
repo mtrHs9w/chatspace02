@@ -12,7 +12,6 @@ function addUser(user) {
   $("#user-search-result").append(html);
 }
 
-
 //一致するユーザーがいなかった場合の処理
 function addNoUser() {
   let html = `
@@ -39,7 +38,7 @@ function addMember(userId) {
 }
 
   $("#user-search-field").on("keyup", function(){
-    var input = $("#user-search-field").val();
+    let input = $("#user-search-field").val();
     $.ajax({
       type: "GET",
       url: "/users",
